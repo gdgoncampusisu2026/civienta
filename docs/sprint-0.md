@@ -1,0 +1,28 @@
+# Sprint 0
+
+Nov 19 - Nov 29, 2026. Goal: infrastructure and decisions. Everyone can run the project locally, wireframes and the data model are approved, the sign-in method and the embedding model are chosen.
+
+Owners keep the acceptance criteria as written when they give the task to their AI tool.
+
+| ID | Task | Owner | Acceptance criteria |
+|---|---|---|---|
+| S0-01 | GitHub repo skeleton, branch protection, PR template, AGENTS.md (once the org account exists) | Serhan | No direct pushes to main, only Serhan merges. README has local setup steps. AGENTS.md is picked up by Claude, Codex and Gemini. |
+| S0-02 | Firebase project (free plan), team access | Serhan | Everyone can open the Firebase console. |
+| S0-03 | Data model v1 → docs/data-model.md | Serhan | Onuralp and Melike reviewed it, comments addressed. |
+| S0-04 | GitHub Projects board | Serhan | Sprint 0 tasks open as issues with owners assigned. |
+| S0-05 | apps/web setup: Next.js + TS + Tailwind + shadcn/ui, ESLint/Prettier, base layout | Layan | npm run dev and npm run build run without errors. Navbar and empty page skeleton exist. A shadcn Button renders. |
+| S0-06 | Vercel connection and PR previews (once the repo exists) | Layan | Every PR gets a preview link automatically. |
+| S0-07 | Firebase emulator (Auth, Firestore) + seed script | Onuralp | Emulator starts with one command. Seed loads 10 users, 15 listings, 20 notes. |
+| S0-08 | firestore.rules v0 + rules test setup | Onuralp | Everything is denied by default. A user can write only their own document. npm run test:rules works. |
+| S0-09 | Microsoft (school account) sign-in spike | Melike | Either school sign-in works and the email field in the token is documented, or "admin consent required" is proven with a screenshot and an email-link sign-in prototype works. Result in docs/decisions/001-auth.md. |
+| S0-10 | Embedding model and hosting spike. Candidates: multilingual-e5-small, paraphrase-multilingual-MiniLM-L12-v2, Gemini embedding API | Buse | TR/EN test set of 20 profiles + 20 listings ready. Table with recall@5, latency and cost per model. A recommendation for where to run the service for free. Result in docs/decisions/002-embedding.md. |
+| S0-11 | shared/skills.json: shared skill list | Buse | About 80 skills, each with slug, label, category. |
+| S0-12 | Lo-fi wireframes: listing list, listing detail, create listing, apply modal | Mustafa | Figma link shared in the group, approved by Serhan. |
+| S0-13 | Design tokens + shadcn theme proposal | Mustafa | Color, font and radius proposal in Figma. |
+| S0-14 | Lo-fi wireframes: sign-in, onboarding/profile edit, profile page, notes list/detail/share | Batuhan | Figma link shared in the group, approved by Serhan. |
+
+## Notes
+- S0-01, S0-04 and S0-06 wait for the GitHub organization account.
+- Decisions from S0-09 and S0-10 go to `docs/decisions/001-auth.md` and `docs/decisions/002-embedding.md` (use `000-template.md`).
+- Sprint 1 tasks are shared at the end of Sprint 0.
+- The repo is public so branch protection and Vercel previews work on free plans. See `docs/decisions/003-public-repo.md`.

@@ -1,0 +1,37 @@
+# Node
+node_modules/
+.next/
+out/
+dist/
+coverage/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+*service-account*.json
+serviceAccountKey*.json
+
+# Firebase
+.firebase/
+firebase-debug.log*
+firestore-debug.log
+ui-debug.log
+emulator-data/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+CLAUDE.local.md
+scripts/github-users.env
