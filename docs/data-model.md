@@ -1,6 +1,6 @@
 # Data model v1
 
-Status: draft for review by Onuralp and Melike (S0-03).
+Status: v1 reviewed and approved by Onuralp and Melike in the team chat (recorded 2026-11-22, S0-03).
 
 Collection names, document ids and the links between collections are fixed. Fields can change: update this file in the same PR that changes them, and Serhan approves.
 
