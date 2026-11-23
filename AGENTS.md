@@ -17,7 +17,8 @@ Campus-only web platform for Istinye University students: listings and matching,
 - Never commit secrets: `.env` files, API keys, service account JSON.
 
 ## Code style
-- Code, identifiers, file names, commit messages and docs are in English.
+- Code, identifiers, file names and docs are in English.
+- Commit messages and PR titles are in Turkish (a squash merge turns the PR title into the commit on `main`).
 - Code comments, docstrings and console messages are in Turkish.
 - Run lint and tests before opening a PR.
 
