@@ -1,18 +1,28 @@
 ---
 name: Task
-about: A single piece of work with an owner and acceptance criteria
-title: ""
+about: A single piece of work with an owner, steps and acceptance criteria
+title: "S?-??: "
 labels: ""
 ---
 
-## Owner
+## Sahibi (Owner)
 
 
-## Goal
+## Ne yapılacak (What to do)
+<!-- Doğal dille, adım adım. Sahibi bu bölümü ve kabul kriterlerini AI aracına olduğu gibi verebilir. -->
+1. 
 
+## Kapsam dışı (Out of scope)
+<!-- Bu görevde yapılmayacaklar. AI araçlarının fazladan iş yapmasını önler. -->
+- 
 
-## Acceptance criteria
+## Kabul kriterleri (Acceptance criteria)
+<!-- Görevin bitti sayılması için şartlar. Serhan PR'da bunları kontrol eder. -->
 - [ ] 
 
-## Notes
+## Kontrol (Review)
+<!-- Serhan neye, nerede bakacak: önizleme linki, komut, Figma linki. -->
+
+
+## Notlar (Notes)
 

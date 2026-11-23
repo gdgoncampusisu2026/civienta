@@ -26,9 +26,9 @@ Maintained by the tech lead (Serhan). Other team members do not edit this sectio
 - Rule from Serhan (2026-11-23): commit messages and PR titles in Turkish. AGENTS.md still says English, to be changed in its own PR.
 
 ### In Progress
-- S0-01: README local setup steps fill in as S0-05 and S0-07 land. AGENTS.md check in Claude, Codex and Gemini still to do.
+- S0-01 (#2): AGENTS.md check done. Claude reads it through `CLAUDE.md`, Gemini through `GEMINI.md` (PR #19), Antigravity tested by Serhan on 2026-11-23 and answered from the rules without opening files (its Customizations panel has no Rules tab). Codex reads `AGENTS.md` natively (not tested). Only open criterion: README local setup steps, now part of #6 (Layan) and #8 (Onuralp). Close #2 when both are merged.
 - `civienta-dev` (second Spark project for previews and tests) created by Serhan; team access and web config for Layan still to do.
-- `docs/data-model.md` update for the S0-10 decisions (embedding as number[], read budget, title search rule, open questions 2 and 3 narrowed) is written locally, waiting for Serhan's yes to open the PR.
+- Issues #6 to #15 rewritten in the two-layer format (what to do, out of scope, acceptance criteria, review). Layan's issues (#6, #7) in English, all others in Turkish with English technical terms. Issue template updated in a PR.
 
 ### Org roles
 - `gdgoncampusisu` is the club's account, `vmhmtemin` is the club organizer (org owner). Neither writes code.
@@ -44,8 +44,8 @@ PDF for Buse: `~/Desktop/GDG/GDG_Istinye_Kararlar_TR.pdf` (kept outside the repo
 - Vector search: decided to compute similarity in memory (cosine) in the AI service from the start, no dependency on Firestore vector search. The emulator runs `findNearest` on top-level vector fields (open bug for nested ones), but parity with production and Spark support were never verified. Embeddings stay in `embedding` as a plain number array.
 
 ### Next Steps
-- Three PRs opened on 2026-11-23: data model update (this one), `GEMINI.md` (S0-01) and AGENTS.md language rule (own PR). Merge them, then finish S0-01 (#2): Serhan tests `GEMINI.md` in Antigravity, README setup steps come with S0-05 and S0-07.
-- Issue format proposal: each task gets a natural-language "what to do" section (usable as an AI prompt) above the acceptance criteria, so the owner follows the steps and Serhan checks the criteria. Waiting for Serhan's go to update the issue template and rewrite #6 to #15.
+- PRs #18 (data model), #19 (`GEMINI.md`) and #20 (AGENTS.md: Turkish commit messages and PR titles) merged on 2026-11-23.
+- Issue format (agreed with Serhan): "what to do" in natural language, usable as an AI prompt, then "out of scope", acceptance criteria as checkboxes, and "review" for Serhan. The owner follows the steps, Serhan checks the criteria. Layan's issues in English, the rest in Turkish.
 - Branch names follow AGENTS.md: `feat/<issue>-short-name` or `fix/<issue>-short-name`.
 - Give the team access to `civienta-dev` and share its web config with Layan (S0-06 previews). Write ADR 004 (quota plan) only if wanted.
 - Share the kickoff PDFs, ADR 003 link and the board with the team and the GDG organizer.
