@@ -1,6 +1,7 @@
 # Data model v1
 
 Status: v1 reviewed and approved by Onuralp and Melike in the team chat (recorded 2026-11-22, S0-03).
+Update 2026-11-23: vector storage and read budget changed after the S0-10 decisions. Collections and links are unchanged, only fields and notes.
 
 Collection names, document ids and the links between collections are fixed. Fields can change: update this file in the same PR that changes them, and Serhan approves.
 
@@ -19,7 +20,9 @@ Collection names, document ids and the links between collections are fixed. Fiel
   - Embeddings are refreshed by the client calling the AI service after a save. `POST /reindex` on the AI service catches the misses.
   - Listings are not closed automatically at `deadline`. Queries and the UI filter by `deadline` instead.
 - Spark has daily read and write quotas. Always paginate lists and never fetch whole collections.
-- Whether Firestore vector search works on the free plan is confirmed in the S0-10 spike. This model assumes it does.
+- Similarity search does not use Firestore vector search. The AI service loads the vectors into memory and computes cosine similarity itself (decision of 2026-11-23). Vectors are plain number arrays, so no vector index is needed and the emulator behaves like production.
+- The free quota is 50,000 reads per day per project, reset at midnight Pacific time (about 11:00 in Istanbul in winter). When it is used up, requests fail until the reset. Plan for 40 to 60 reads per active user per day: lists use one-time queries with a client-side cache instead of listeners, and a page size of 10. Reads made by security rules (`get()`, `getAfter()`) and by the AI service count too. Previews and tests use the separate `civienta-dev` project, not the production one.
+- If the daily reads stay above about 35,000 for several days, the order is: more optimization first (data bundles, AI service cache), then a free move to another database (Supabase or Cloudflare D1), and a paid plan only as a temporary last resort. Keep Firestore access inside `features/*/api.ts` so such a move stays cheap.
 
 ## Collections
 
@@ -105,7 +108,7 @@ Written and read only by the AI service.
 
 | Field | Type | Notes |
 |---|---|---|
-| embedding | vector | dimension depends on the model chosen in S0-10 |
+| embedding | number[] | plain array of numbers, not the Firestore vector type. The dimension depends on the local model chosen in S0-10. |
 | model | string | model name, so old vectors can be detected after a model change |
 | updatedAt | timestamp | |
 
@@ -129,10 +132,10 @@ Every rule gets at least one allow test and one deny test. The school account ch
 - Each filter combination used by the UI needs a composite index in `firebase/firestore.indexes.json`.
 - My applications: `applicantId == uid`, order by `createdAt`.
 - Incoming applications: `listingOwnerId == uid`, optionally by `listingId`.
-- Notes: `department` and `courseCode` equality filters, order by `createdAt` or `likeCount`. Title search is done in the client for now.
+- Notes: `department` and `courseCode` equality filters, order by `createdAt` or `likeCount`. Title search must not download a whole course into the client: keep results limited (course filter plus a page limit) or search in the AI service. Decide in Sprint 2.
 
 ## Open questions
 
 1. Hiding a note after N reports without Cloud Functions: filter on `reportCount` at query time, or a rules-validated batch that also sets `status`. Decide in Sprint 2.
-2. Embedding model and vector dimension (S0-10).
-3. Where the AI service runs for free (S0-10).
+2. Which local embedding model to use and its vector dimension (S0-10 benchmark). Gemini is only used in the benchmark, on synthetic data.
+3. Where the AI service runs for free (S0-10). It holds all vectors in memory and should read as few documents as possible on start (only changed ones, by `updatedAt`).

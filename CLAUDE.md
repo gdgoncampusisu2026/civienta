@@ -21,11 +21,14 @@ Maintained by the tech lead (Serhan). Other team members do not edit this sectio
 - PR #1 (working notes) squash-merged; the bypass merge flow works.
 - S0-03 done: Onuralp and Melike approved data model v1 over WhatsApp with no changes. Issue #4 closed, board card Done, status line updated in `docs/data-model.md` (PR #16 merged).
 - Board `Civienta` created and linked: https://github.com/orgs/gdgoncampusisu2026/projects/1 (the "item closed -> Done" workflow does not fire, move cards by hand).
+- S0-04 done (#5 closed): 14 Sprint 0 issues (#2 to #15, label `sprint-0`, `owner:<name>` labels) all assigned; everyone is in the org and in `civienta-team` with Write. Board is visible to org members only. Do not run the issue script again (it would duplicate the issues).
+- S0-02 done (#3 closed): `civienta-gdg` (Spark, Firestore `(default)` in Frankfurt, production mode, web app registered), everyone added with their roles, team confirmed access.
+- Rule from Serhan (2026-11-23): commit messages and PR titles in Turkish. AGENTS.md still says English, to be changed in its own PR.
 
 ### In Progress
 - S0-01: README local setup steps fill in as S0-05 and S0-07 land. AGENTS.md check in Claude, Codex and Gemini still to do.
-- S0-02: Firebase project `civienta-gdg` created (Spark, Firestore `(default)` in Frankfurt, production mode, web app registered). Team invites come later (needs everyone's Google account).
-- S0-04: 14 Sprint 0 issues opened (#2 to #15, S0-01 to S0-14, label `sprint-0`) with `owner:<name>` labels and the owner name in the issue body. Board: https://github.com/orgs/gdgoncampusisu2026/projects/1 (Status: Todo / In Progress / Review / Done, repo linked, all 14 issues added, Serhan's 4 In Progress). Assigned so far: Serhan (#2-#5), Melike (#10), Buse (#11, #12). Still to assign when they join the org: Layan (#6, #7), Onuralp (#8, #9), Mustafa (#13, #14), Batuhan (#15). The org owner (Mehmet) invites; `civienta-team` has Write on the repo, Serhan adds members to the team as they join. Labels stay next to assignees. Do not run the issue script again (it would duplicate the issues).
+- `civienta-dev` (second Spark project for previews and tests) created by Serhan; team access and web config for Layan still to do.
+- `docs/data-model.md` update for the S0-10 decisions (embedding as number[], read budget, title search rule, open questions 2 and 3 narrowed) is written locally, waiting for Serhan's yes to open the PR.
 
 ### Org roles
 - `gdgoncampusisu` is the club's account, `vmhmtemin` is the club organizer (org owner). Neither writes code.
@@ -41,10 +44,10 @@ PDF for Buse: `~/Desktop/GDG/GDG_Istinye_Kararlar_TR.pdf` (kept outside the repo
 - Vector search: decided to compute similarity in memory (cosine) in the AI service from the start, no dependency on Firestore vector search. The emulator runs `findNearest` on top-level vector fields (open bug for nested ones), but parity with production and Spark support were never verified. Embeddings stay in `embedding` as a plain number array.
 
 ### Next Steps
-- Update `docs/data-model.md`: embedding type (plain number array) and open questions 2 and 3, via PR.
-- Create a second Spark project `civienta-dev` for previews and tests (S0-02 follow-up). Write ADR 004 (quota plan) only if wanted.
-- Team joins the org (Mehmet invites), Serhan adds members to `civienta-team`, then assign the remaining issues and add everyone to Firebase.
-- `GEMINI.md` with `@AGENTS.md` to finish the S0-01 tool check (untested assumption), README setup steps after S0-05 and S0-07.
+- Three PRs opened on 2026-11-23: data model update (this one), `GEMINI.md` (S0-01) and AGENTS.md language rule (own PR). Merge them, then finish S0-01 (#2): Serhan tests `GEMINI.md` in Antigravity, README setup steps come with S0-05 and S0-07.
+- Issue format proposal: each task gets a natural-language "what to do" section (usable as an AI prompt) above the acceptance criteria, so the owner follows the steps and Serhan checks the criteria. Waiting for Serhan's go to update the issue template and rewrite #6 to #15.
+- Branch names follow AGENTS.md: `feat/<issue>-short-name` or `fix/<issue>-short-name`.
+- Give the team access to `civienta-dev` and share its web config with Layan (S0-06 previews). Write ADR 004 (quota plan) only if wanted.
 - Share the kickoff PDFs, ADR 003 link and the board with the team and the GDG organizer.
 - Draft Sprint 1 tasks (login, profile, listing, application) once S0-09 and S0-10 are decided.
 
