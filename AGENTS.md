@@ -18,7 +18,7 @@ Campus-only web platform for Istinye University students: listings and matching,
 
 ## Code style
 - Code, identifiers, file names and docs are in English.
-- Commit messages and PR titles are in Turkish (a squash merge turns the PR title into the commit on `main`).
+- Commit messages and PR titles are in Turkish (a squash merge turns the PR title into the commit on `main`). English is fine for team members who do not speak Turkish.
 - Code comments, docstrings and console messages are in Turkish.
 - Run lint and tests before opening a PR.
 
