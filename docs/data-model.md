@@ -9,6 +9,7 @@ Collection names, document ids and the links between collections are fixed. Fiel
 
 - Firestore is accessed only from `apps/web/src/features/*/api.ts`. The AI service uses the Admin SDK.
 - Skills, departments and courses are slugs from `shared/*.json`. Documents store slugs, never labels.
+- Each skill in `shared/skills.json` has `slug`, `label` and `category`. Categories are a fixed set: `frontend`, `backend`, `mobile`, `data-ai`, `design`, `devops`, `product`, `content-media`, `business`, `soft-skills`. New skills can be added, but a slug never changes once in use.
 - Timestamps are Firestore `Timestamp`. `createdAt` is set once, `updatedAt` on every change.
 - Vectors live in separate collections so normal reads never download them and clients never see them.
 - Firestore is schemaless, so adding a field is cheap. Renaming or removing one needs a note in the PR and a reseed.
