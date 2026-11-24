@@ -1,0 +1,407 @@
+[
+  {
+    "slug": "html-css",
+    "label": "HTML/CSS",
+    "category": "frontend"
+  },
+  {
+    "slug": "javascript",
+    "label": "JavaScript",
+    "category": "frontend"
+  },
+  {
+    "slug": "typescript",
+    "label": "TypeScript",
+    "category": "frontend"
+  },
+  {
+    "slug": "react",
+    "label": "React",
+    "category": "frontend"
+  },
+  {
+    "slug": "next-js",
+    "label": "Next.js",
+    "category": "frontend"
+  },
+  {
+    "slug": "vue-js",
+    "label": "Vue.js",
+    "category": "frontend"
+  },
+  {
+    "slug": "tailwind-css",
+    "label": "Tailwind CSS",
+    "category": "frontend"
+  },
+  {
+    "slug": "web-accessibility",
+    "label": "Web Erişilebilirliği",
+    "category": "frontend"
+  },
+  {
+    "slug": "wordpress",
+    "label": "WordPress",
+    "category": "frontend"
+  },
+  {
+    "slug": "python",
+    "label": "Python",
+    "category": "backend"
+  },
+  {
+    "slug": "java",
+    "label": "Java",
+    "category": "backend"
+  },
+  {
+    "slug": "c-sharp",
+    "label": "C#",
+    "category": "backend"
+  },
+  {
+    "slug": "node-js",
+    "label": "Node.js",
+    "category": "backend"
+  },
+  {
+    "slug": "sql",
+    "label": "SQL",
+    "category": "backend"
+  },
+  {
+    "slug": "rest-api",
+    "label": "REST API",
+    "category": "backend"
+  },
+  {
+    "slug": "firebase",
+    "label": "Firebase",
+    "category": "backend"
+  },
+  {
+    "slug": "fastapi",
+    "label": "FastAPI",
+    "category": "backend"
+  },
+  {
+    "slug": "flutter",
+    "label": "Flutter",
+    "category": "mobile"
+  },
+  {
+    "slug": "react-native",
+    "label": "React Native",
+    "category": "mobile"
+  },
+  {
+    "slug": "swift-ios",
+    "label": "Swift (iOS)",
+    "category": "mobile"
+  },
+  {
+    "slug": "kotlin-android",
+    "label": "Kotlin (Android)",
+    "category": "mobile"
+  },
+  {
+    "slug": "data-analysis",
+    "label": "Veri Analizi",
+    "category": "data-ai"
+  },
+  {
+    "slug": "data-visualization",
+    "label": "Veri Görselleştirme",
+    "category": "data-ai"
+  },
+  {
+    "slug": "excel",
+    "label": "Excel",
+    "category": "data-ai"
+  },
+  {
+    "slug": "power-bi",
+    "label": "Power BI",
+    "category": "data-ai"
+  },
+  {
+    "slug": "statistics",
+    "label": "İstatistik",
+    "category": "data-ai"
+  },
+  {
+    "slug": "machine-learning",
+    "label": "Makine Öğrenmesi",
+    "category": "data-ai"
+  },
+  {
+    "slug": "deep-learning",
+    "label": "Derin Öğrenme",
+    "category": "data-ai"
+  },
+  {
+    "slug": "nlp",
+    "label": "Doğal Dil İşleme",
+    "category": "data-ai"
+  },
+  {
+    "slug": "computer-vision",
+    "label": "Bilgisayarlı Görü",
+    "category": "data-ai"
+  },
+  {
+    "slug": "prompt-engineering",
+    "label": "Prompt Mühendisliği",
+    "category": "data-ai"
+  },
+  {
+    "slug": "ui-design",
+    "label": "Arayüz Tasarımı (UI)",
+    "category": "design"
+  },
+  {
+    "slug": "ux-research",
+    "label": "Kullanıcı Araştırması (UX)",
+    "category": "design"
+  },
+  {
+    "slug": "figma",
+    "label": "Figma",
+    "category": "design"
+  },
+  {
+    "slug": "prototyping",
+    "label": "Prototipleme",
+    "category": "design"
+  },
+  {
+    "slug": "graphic-design",
+    "label": "Grafik Tasarım",
+    "category": "design"
+  },
+  {
+    "slug": "canva",
+    "label": "Canva",
+    "category": "design"
+  },
+  {
+    "slug": "adobe-photoshop",
+    "label": "Adobe Photoshop",
+    "category": "design"
+  },
+  {
+    "slug": "presentation-design",
+    "label": "Sunum Tasarımı",
+    "category": "design"
+  },
+  {
+    "slug": "brand-identity",
+    "label": "Marka Kimliği",
+    "category": "design"
+  },
+  {
+    "slug": "git",
+    "label": "Git",
+    "category": "devops"
+  },
+  {
+    "slug": "docker",
+    "label": "Docker",
+    "category": "devops"
+  },
+  {
+    "slug": "ci-cd",
+    "label": "CI/CD",
+    "category": "devops"
+  },
+  {
+    "slug": "linux",
+    "label": "Linux",
+    "category": "devops"
+  },
+  {
+    "slug": "cloud-computing",
+    "label": "Bulut Bilişim",
+    "category": "devops"
+  },
+  {
+    "slug": "software-testing",
+    "label": "Yazılım Testi",
+    "category": "devops"
+  },
+  {
+    "slug": "product-management",
+    "label": "Ürün Yönetimi",
+    "category": "product"
+  },
+  {
+    "slug": "project-management",
+    "label": "Proje Yönetimi",
+    "category": "product"
+  },
+  {
+    "slug": "agile-scrum",
+    "label": "Agile/Scrum",
+    "category": "product"
+  },
+  {
+    "slug": "requirements-analysis",
+    "label": "Gereksinim Analizi",
+    "category": "product"
+  },
+  {
+    "slug": "no-code-tools",
+    "label": "No-Code Araçları",
+    "category": "product"
+  },
+  {
+    "slug": "content-writing",
+    "label": "İçerik Yazarlığı",
+    "category": "content-media"
+  },
+  {
+    "slug": "copywriting",
+    "label": "Reklam Metni Yazarlığı",
+    "category": "content-media"
+  },
+  {
+    "slug": "social-media-management",
+    "label": "Sosyal Medya Yönetimi",
+    "category": "content-media"
+  },
+  {
+    "slug": "photography",
+    "label": "Fotoğrafçılık",
+    "category": "content-media"
+  },
+  {
+    "slug": "video-editing",
+    "label": "Video Kurgu",
+    "category": "content-media"
+  },
+  {
+    "slug": "podcast-production",
+    "label": "Podcast Prodüksiyonu",
+    "category": "content-media"
+  },
+  {
+    "slug": "translation",
+    "label": "Çeviri",
+    "category": "content-media"
+  },
+  {
+    "slug": "seo",
+    "label": "SEO",
+    "category": "content-media"
+  },
+  {
+    "slug": "technical-writing",
+    "label": "Teknik Yazarlık",
+    "category": "content-media"
+  },
+  {
+    "slug": "marketing",
+    "label": "Pazarlama",
+    "category": "business"
+  },
+  {
+    "slug": "digital-marketing",
+    "label": "Dijital Pazarlama",
+    "category": "business"
+  },
+  {
+    "slug": "market-research",
+    "label": "Pazar Araştırması",
+    "category": "business"
+  },
+  {
+    "slug": "sales",
+    "label": "Satış",
+    "category": "business"
+  },
+  {
+    "slug": "entrepreneurship",
+    "label": "Girişimcilik",
+    "category": "business"
+  },
+  {
+    "slug": "business-development",
+    "label": "İş Geliştirme",
+    "category": "business"
+  },
+  {
+    "slug": "sponsorship-fundraising",
+    "label": "Sponsorluk ve Bağış Toplama",
+    "category": "business"
+  },
+  {
+    "slug": "financial-analysis",
+    "label": "Finansal Analiz",
+    "category": "business"
+  },
+  {
+    "slug": "budgeting",
+    "label": "Bütçe Yönetimi",
+    "category": "business"
+  },
+  {
+    "slug": "event-management",
+    "label": "Etkinlik Yönetimi",
+    "category": "business"
+  },
+  {
+    "slug": "community-management",
+    "label": "Topluluk Yönetimi",
+    "category": "business"
+  },
+  {
+    "slug": "public-relations",
+    "label": "Halkla İlişkiler",
+    "category": "business"
+  },
+  {
+    "slug": "pitching",
+    "label": "Yatırımcı Sunumu (Pitch)",
+    "category": "business"
+  },
+  {
+    "slug": "communication",
+    "label": "İletişim",
+    "category": "soft-skills"
+  },
+  {
+    "slug": "teamwork",
+    "label": "Takım Çalışması",
+    "category": "soft-skills"
+  },
+  {
+    "slug": "leadership",
+    "label": "Liderlik",
+    "category": "soft-skills"
+  },
+  {
+    "slug": "public-speaking",
+    "label": "Topluluk Önünde Konuşma",
+    "category": "soft-skills"
+  },
+  {
+    "slug": "time-management",
+    "label": "Zaman Yönetimi",
+    "category": "soft-skills"
+  },
+  {
+    "slug": "problem-solving",
+    "label": "Problem Çözme",
+    "category": "soft-skills"
+  },
+  {
+    "slug": "creativity",
+    "label": "Yaratıcılık",
+    "category": "soft-skills"
+  },
+  {
+    "slug": "teaching",
+    "label": "Eğitmenlik",
+    "category": "soft-skills"
+  }
+]
