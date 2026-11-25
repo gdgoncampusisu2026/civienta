@@ -403,5 +403,35 @@
     "slug": "teaching",
     "label": "Eğitmenlik",
     "category": "soft-skills"
+  },
+  {
+    "slug": "c-cpp",
+    "label": "C/C++",
+    "category": "other"
+  },
+  {
+    "slug": "embedded-systems",
+    "label": "Gömülü Sistemler ve IoT",
+    "category": "other"
+  },
+  {
+    "slug": "arduino",
+    "label": "Arduino",
+    "category": "other"
+  },
+  {
+    "slug": "game-development",
+    "label": "Oyun Geliştirme",
+    "category": "other"
+  },
+  {
+    "slug": "unity",
+    "label": "Unity",
+    "category": "other"
+  },
+  {
+    "slug": "cybersecurity",
+    "label": "Siber Güvenlik",
+    "category": "other"
   }
 ]
