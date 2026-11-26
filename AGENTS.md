@@ -24,6 +24,7 @@ Campus-only web platform for Istinye University students: listings and matching,
 
 ## Git
 - One task = one issue = one branch = one PR.
+- Small follow-ups to an already merged task need no new issue when Serhan says so: use the original issue number in the branch name (`feat/12-more-skills`) and write `Refs #<issue>` in the PR description.
 - Branch names: `feat/<issue>-short-name` or `fix/<issue>-short-name`.
 - PR description includes `Closes #<issue>`. Check your change on the preview link.
 - Keep PRs focused. Split big tasks into smaller ones.
