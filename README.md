@@ -28,10 +28,14 @@ Anyone can read the code, issues and pull requests ([why](docs/decisions/003-pub
 
 ## Local setup
 
-Not ready yet. These steps will be filled in as the Sprint 0 tasks land:
-
-1. Clone the repo and install Node.js (version will be pinned by S0-05).
-2. `apps/web`: install and run the app (S0-05).
+1. Clone the repo and install Node.js 26.13.1 (pinned in `.nvmrc`).
+2. `apps/web` — install and run the app:
+   ```bash
+   cd apps/web
+   npm install
+   npm run dev
+   ```
+   Open http://localhost:3000 in your browser.
 3. Firebase emulator and seed data: one command (S0-07).
 4. `services/ai`: Python environment and run command (later, not in Sprint 0).
 
