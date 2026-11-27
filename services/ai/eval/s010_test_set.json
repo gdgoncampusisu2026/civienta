@@ -1,0 +1,911 @@
+{
+  "meta": {
+    "task": "S010 - Embedding modeli ve hosting spike'ı",
+    "version": "v1-final",
+    "note": "Sentetik test seti, etiketler Buse tarafından onaylandı. Sonuçlar genel model başarısı değil, ön değerlendirme olarak yorumlanmalı. Beceri slug'ları tahminidir, S011 (shared/skills.json) bitince gerçek slug'larla değiştirilecek. Etiketlenmemiş ilanlar nötr sayılır: ne doğru ne tuzak.",
+    "length_key": {
+      "K": "kısa (1-2 cümle)",
+      "O": "orta (3-4 cümle)",
+      "U": "uzun (5+ cümle)"
+    },
+    "counts": {
+      "profiles_tr": 10,
+      "profiles_en": 10,
+      "listings_tr": 10,
+      "listings_en": 10
+    },
+    "label_scheme": {
+      "strong": "Kesinlikle uyar",
+      "acceptable": "Uyabilir, makul bir öneri",
+      "should_not_match": "Model benzer bulabilir ama gerçekte uygun değil (sebebiyle)"
+    },
+    "metrics": {
+      "recall@5 (strong)": "İlk 5'te strong ilanların kaçı var, yüksek iyi",
+      "recall@5 (strong+acceptable)": "İlk 5'te strong ve acceptable ilanların kaçı var, yüksek iyi",
+      "tuzak@5": "İlk 5'te should_not_match ilanların kaçı çıktı, düşük iyi",
+      "gecikme/maliyet": "Tek metin embedding süresi, RAM/API limitleri"
+    }
+  },
+  "listings": [
+    {
+      "id": "L1",
+      "language": "tr",
+      "length": "K",
+      "ownerType": "startup",
+      "orgName": "Kampüs Girişimi",
+      "title": "React Frontend Geliştirici",
+      "description": "Web uygulamamız için React bilen bir frontend geliştirici arıyoruz. Haftada yaklaşık 6 saat ayırabilmek yeterli.",
+      "requiredSkills": [
+        "react",
+        "typescript",
+        "html-css"
+      ]
+    },
+    {
+      "id": "L2",
+      "language": "en",
+      "length": "K",
+      "ownerType": "startup",
+      "orgName": "FitLoop",
+      "title": "Flutter Mobile Developer",
+      "description": "We are building a fitness app and need a Flutter developer to help us ship our first mobile release. About 8 hours a week.",
+      "requiredSkills": [
+        "flutter",
+        "dart",
+        "mobile-development"
+      ]
+    },
+    {
+      "id": "L3",
+      "language": "en",
+      "length": "U",
+      "ownerType": "startup",
+      "orgName": "ShopNest",
+      "title": "Data Analyst Intern",
+      "description": "We are an early-stage e-commerce startup looking for a data analyst intern to join our growth team for a semester. You will clean and explore customer and order data using Python and SQL, build weekly dashboards for the founders, and help us understand why customers stop buying from us. You will also run small A/B test analyses and write short summaries in plain language for non-technical teammates. We expect comfort with pandas and basic statistics; experience with a BI tool is a plus. You will work closely with two engineers and the marketing lead, and you will present your findings every two weeks.",
+      "requiredSkills": [
+        "python",
+        "sql",
+        "pandas",
+        "data-analysis",
+        "statistics"
+      ]
+    },
+    {
+      "id": "L4",
+      "language": "en",
+      "length": "O",
+      "ownerType": "startup",
+      "orgName": "MetricPanel",
+      "title": "UI/UX Designer for SaaS Dashboard",
+      "description": "Our B2B SaaS startup is redesigning its analytics dashboard and needs a UI/UX designer. You will create wireframes and prototypes in Figma, run a few short user interviews, and work with our frontend developers to turn designs into a consistent component library. Portfolio pieces or class projects are welcome.",
+      "requiredSkills": [
+        "figma",
+        "ui-design",
+        "ux-research"
+      ]
+    },
+    {
+      "id": "L5",
+      "language": "tr",
+      "length": "O",
+      "ownerType": "startup",
+      "orgName": "Minik Adımlar",
+      "title": "Sosyal Medya ve İçerik Sorumlusu",
+      "description": "Genç bir girişim olarak Instagram ve LinkedIn hesaplarımızı yönetecek, haftalık içerik takvimi hazırlayacak bir ekip arkadaşı arıyoruz. Canva ile görsel hazırlama deneyimi artı. Yaratıcı ve düzenli çalışabilen biri olmalı.",
+      "requiredSkills": [
+        "sosyal-medya",
+        "icerik-uretimi",
+        "canva"
+      ]
+    },
+    {
+      "id": "L6",
+      "language": "tr",
+      "length": "U",
+      "ownerType": "club",
+      "orgName": "Yazılım Topluluğu",
+      "title": "Kulüp Web Sitesi Yenileme",
+      "description": "Yazılım Topluluğu olarak kulüp web sitemizi baştan tasarlıyoruz. Mevcut site eski ve telefonda bozuk görünüyor. Figma'da ana sayfa, etkinlikler ve ekip sayfaları için tasarımlar hazırlayacak, ardından bunları modern bir frontend teknolojisiyle koda dökecek öğrenciler arıyoruz. Tasarım ve kod işini aynı kişi yapabilir ya da ikiye bölebiliriz. Etkinlik duyurularının kolayca eklenebilmesi için basit bir yönetim ekranı da düşünüyoruz. Dönem sonunda siteyi yayına almayı hedefliyoruz.",
+      "requiredSkills": [
+        "figma",
+        "react",
+        "html-css",
+        "frontend"
+      ]
+    },
+    {
+      "id": "L7",
+      "language": "tr",
+      "length": "U",
+      "ownerType": "club",
+      "orgName": "Girişimcilik Kulübü",
+      "title": "Etkinlik Organizasyon Ekibi",
+      "description": "Girişimcilik Kulübü olarak bu dönem her ay bir etkinlik düzenleyeceğiz: konuşmacı söyleşileri, atölyeler ve bir kariyer günü. Etkinlik takvimini planlayacak, konuşmacılarla iletişime geçecek, mekan ve ekipman ihtiyaçlarını takip edecek ve duyuruları yapacak ekip arkadaşları arıyoruz. Daha önce okulda, kulüpte ya da başka bir yerde etkinlik organize ettiysen büyük artı, ama sıfırdan öğrenmek isteyenlere de açığız. Ekip içinde sorumluluk almayı ve zamanında geri dönüş yapmayı önemsiyoruz.",
+      "requiredSkills": [
+        "etkinlik-organizasyonu",
+        "iletisim",
+        "takim-calismasi"
+      ]
+    },
+    {
+      "id": "L8",
+      "language": "en",
+      "length": "K",
+      "ownerType": "club",
+      "orgName": "Student Film Club",
+      "title": "Photographer / Videographer for Club Events",
+      "description": "Our student film club needs someone to photograph and film our events and to edit short highlight clips. Having your own camera is a plus.",
+      "requiredSkills": [
+        "photography",
+        "video-editing"
+      ]
+    },
+    {
+      "id": "L9",
+      "language": "tr",
+      "length": "K",
+      "ownerType": "club",
+      "orgName": "Kodlama Kulübü",
+      "title": "Python Eğitmeni",
+      "description": "Kulübümüzde yeni başlayanlara yönelik Python atölyeleri verecek, ders anlatmayı seven bir gönüllü arıyoruz.",
+      "requiredSkills": [
+        "python",
+        "egitmenlik"
+      ]
+    },
+    {
+      "id": "L10",
+      "language": "en",
+      "length": "U",
+      "ownerType": "club",
+      "orgName": "AI & Data Science Club",
+      "title": "Machine Learning Workshop Mentor",
+      "description": "Our AI & Data Science club is looking for a mentor to lead a series of machine learning workshops this semester. You will design a beginner-friendly curriculum covering the basics of supervised learning, hands-on notebooks with scikit-learn, and a short introduction to neural networks with PyTorch. You will also support participants during our end-of-term hackathon by answering questions and reviewing their project ideas. We value clear explanations over deep theory, so being patient and enjoying teaching matters as much as your technical level. The weekly commitment is around 5 hours.",
+      "requiredSkills": [
+        "machine-learning",
+        "python",
+        "pytorch",
+        "egitmenlik"
+      ]
+    },
+    {
+      "id": "L11",
+      "language": "tr",
+      "length": "O",
+      "ownerType": "social",
+      "orgName": "Geleceğin Kodcuları Derneği",
+      "title": "Çocuklara Kodlama Öğretimi Gönüllüsü",
+      "description": "Bir sivil toplum kuruluşuyla birlikte ilkokul ve ortaokul çocuklarına hafta sonları temel kodlama öğreteceğiz. Scratch gibi görsel araçlarla oyun yaptırıyoruz. Çocuklarla çalışmaktan keyif alan, sabırlı gönüllüler arıyoruz.",
+      "requiredSkills": [
+        "scratch",
+        "egitmenlik",
+        "gonulluluk"
+      ]
+    },
+    {
+      "id": "L12",
+      "language": "en",
+      "length": "O",
+      "ownerType": "social",
+      "orgName": "Green Steps Campaign",
+      "title": "Campaign Social Media Volunteer",
+      "description": "We run a student-led awareness campaign on sustainable living and need a volunteer to manage our Instagram and TikTok accounts. You will plan posts, write short captions in Turkish and English, and track which content gets the most engagement. No professional experience is needed, but consistency matters.",
+      "requiredSkills": [
+        "social-media",
+        "content-creation"
+      ]
+    },
+    {
+      "id": "L13",
+      "language": "en",
+      "length": "O",
+      "ownerType": "social",
+      "orgName": "Neighbors Together NGO",
+      "title": "Turkish-English Translation Volunteer",
+      "description": "A local NGO is preparing an information guide for newly arrived families covering schools, healthcare and public services. We need volunteers who are fluent in both Turkish and English to translate and proofread the guide. The work is flexible and can be done remotely over about three weeks.",
+      "requiredSkills": [
+        "translation",
+        "turkish",
+        "english"
+      ]
+    },
+    {
+      "id": "L14",
+      "language": "tr",
+      "length": "K",
+      "ownerType": "social",
+      "orgName": "Patili Dostlar Barınağı",
+      "title": "Hayvan Barınağı İçin Fotoğraf ve Tanıtım",
+      "description": "Barınaktaki hayvanların sahiplendirme ilanları için fotoğraf çekecek ve kısa tanıtım yazıları hazırlayacak gönüllüler arıyoruz.",
+      "requiredSkills": [
+        "fotograf",
+        "icerik-uretimi",
+        "gonulluluk"
+      ]
+    },
+    {
+      "id": "L15",
+      "language": "en",
+      "length": "O",
+      "ownerType": "startup",
+      "orgName": "MarketBee",
+      "title": "Backend Developer (Node.js + Firebase)",
+      "description": "We are a small startup building a marketplace app and need a backend developer to work with Node.js and Firebase. You will build REST endpoints, write Firestore security rules and help us set up authentication. Experience with any cloud backend is fine, we are happy to teach the rest.",
+      "requiredSkills": [
+        "nodejs",
+        "firebase",
+        "backend",
+        "rest-api"
+      ]
+    },
+    {
+      "id": "L16",
+      "language": "tr",
+      "length": "U",
+      "ownerType": "startup",
+      "orgName": "Dersvadisi",
+      "title": "Pazarlama ve Büyüme Stajyeri",
+      "description": "Hızlı büyüyen bir eğitim teknolojisi girişimi olarak pazarlama ve büyüme ekibimize dönem boyunca katkı verecek bir stajyer arıyoruz. Hedef kitlemiz üniversite öğrencileri; bu yüzden kampüslerde nasıl duyuru yapılır, hangi kanallar işe yarar, bunu birlikte denemek istiyoruz. Stajyerimiz sosyal medya kampanyaları planlayacak, e-posta bültenlerimizi hazırlayacak, kısa sunumlar ve raporlar oluşturacak ve haftalık sonuçları takip edecek. Pazarlama bilgisi ya da kulüp başkanlığı gibi deneyimler çok değerli, ama en çok merak ve girişkenlik arıyoruz. Haftada 10 saat ayırabilecek ve ekip toplantılarına düzenli katılabilecek biri olmalı.",
+      "requiredSkills": [
+        "pazarlama",
+        "sosyal-medya",
+        "sunum",
+        "icerik-uretimi"
+      ]
+    },
+    {
+      "id": "L17",
+      "language": "tr",
+      "length": "O",
+      "ownerType": "club",
+      "orgName": "Medya Kulübü",
+      "title": "Podcast ve Video Kurgu Ekibi",
+      "description": "Kulübümüzün podcast'i ve YouTube kanalı için bölüm kurgusu yapacak arkadaşlar arıyoruz. Ses ve görüntü düzenleme deneyimi olması yeterli, kullandığın programı biliyorsan harika. Her hafta bir bölüm çıkarıyoruz.",
+      "requiredSkills": [
+        "video-editing",
+        "ses-duzenleme"
+      ]
+    },
+    {
+      "id": "L18",
+      "language": "en",
+      "length": "U",
+      "ownerType": "startup",
+      "orgName": "CampusAsk",
+      "title": "AI Chatbot Prototype",
+      "description": "We are a seed-stage startup working on a student support product and want to build a first prototype of a chatbot that answers common questions about university procedures. The prototype should use a large language model API, retrieve answers from a small set of documents, and support both Turkish and English. You will design the prompts, connect the API to a simple backend, and test the answers with real examples to find where the bot fails. We are not looking for a polished product, but for someone who enjoys experimenting and can explain what worked and what did not. Experience with Python and any LLM API is expected, and basic backend knowledge will help a lot.",
+      "requiredSkills": [
+        "llm",
+        "prompt-engineering",
+        "python",
+        "api"
+      ]
+    },
+    {
+      "id": "L19",
+      "language": "en",
+      "length": "K",
+      "ownerType": "social",
+      "orgName": "Open Hands Foundation",
+      "title": "Data Dashboard for an NGO",
+      "description": "A non-profit needs a volunteer to turn its donation spreadsheets into a simple dashboard using Excel or Power BI.",
+      "requiredSkills": [
+        "excel",
+        "power-bi",
+        "data-visualization"
+      ]
+    },
+    {
+      "id": "L20",
+      "language": "tr",
+      "length": "O",
+      "ownerType": "club",
+      "orgName": "Girişimcilik Kulübü",
+      "title": "Pitch Deck ve Sunum Tasarımı",
+      "description": "Girişimcilik Kulübü'nün yarışmaya hazırlanan ekipleri için pitch deck tasarlayacak arkadaşlar arıyoruz. Canva ya da PowerPoint ile temiz, anlaşılır sunumlar hazırlamak ve ekiplerle birlikte hikayeyi netleştirmek görevin olacak.",
+      "requiredSkills": [
+        "sunum",
+        "canva",
+        "tasarim"
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "P1",
+      "language": "tr",
+      "length": "O",
+      "difficulty": "kolay",
+      "department": "Bilgisayar Mühendisliği",
+      "classYear": 2,
+      "bio": "Bilgisayar mühendisliği 2. sınıf öğrencisiyim. React ve Tailwind CSS ile birkaç kişisel proje yaptım, şu an TypeScript öğreniyorum. Takım halinde bir web projesinde çalışmak istiyorum.",
+      "skills": [
+        "react",
+        "tailwind",
+        "javascript",
+        "typescript"
+      ],
+      "strong": [
+        "L1",
+        "L6"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L2",
+          "reason": "Geliştirici ilanı ama mobil/Flutter; profil sadece web"
+        },
+        {
+          "id": "L4",
+          "reason": "Arayüz konusu ortak ama rol tasarımcılık, profilde Figma/UX yok"
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "language": "tr",
+      "length": "U",
+      "difficulty": "orta",
+      "department": "Yazılım Mühendisliği",
+      "classYear": 1,
+      "bio": "Yazılım mühendisliği okuyorum. Web sitelerinin arayüzünü tasarlamayı çok seviyorum, genelde önce Figma'da çizip sonra kodluyorum. Henüz büyük bir projede çalışmadım ama bir kulüpte ya da girişimde deneyim kazanmak istiyorum. Backend tarafı bana biraz uzak geliyor, daha çok kullanıcının gördüğü kısımla ilgileniyorum. Bazen sırf renk paletleri ve yazı tipleri seçmek için saatler harcıyorum. Haftada 5-6 saat ayırabilirim.",
+      "skills": [
+        "figma",
+        "html-css",
+        "javascript"
+      ],
+      "strong": [
+        "L6",
+        "L4"
+      ],
+      "acceptable": [
+        "L1"
+      ],
+      "should_not_match": [
+        {
+          "id": "L15",
+          "reason": "Geliştirici ilanı ama backend; profil backend'i açıkça uzak buluyor"
+        },
+        {
+          "id": "L2",
+          "reason": "Geliştirici ilanı ama mobil/Flutter; profil web arayüzüne yakın"
+        }
+      ],
+      "review_note": "L1 acceptable: React ister, profil sadece JavaScript ve HTML/CSS biliyor."
+    },
+    {
+      "id": "P3",
+      "language": "en",
+      "length": "K",
+      "difficulty": "kolay",
+      "department": "Computer Engineering",
+      "classYear": 3,
+      "bio": "Computer engineering student. I build mobile apps with Flutter and have published one small app on the Play Store.",
+      "skills": [
+        "flutter",
+        "dart"
+      ],
+      "strong": [
+        "L2"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L15",
+          "reason": "Uygulama geliştirme ama backend (Node/Firebase), mobil değil"
+        },
+        {
+          "id": "L1",
+          "reason": "Geliştirici ilanı ama web/React, mobil değil"
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "language": "tr",
+      "length": "K",
+      "difficulty": "zor (TR profil, EN ilan)",
+      "department": "Yazılım Mühendisliği",
+      "classYear": 2,
+      "bio": "Mobil uygulama yapıyorum, Flutter kullanıyorum.",
+      "skills": [
+        "flutter"
+      ],
+      "strong": [
+        "L2"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L1",
+          "reason": "Türkçe ilan ve geliştirici kelimesi ortak, ama web/React. Model aynı dili tercih ediyor mu testi"
+        },
+        {
+          "id": "L15",
+          "reason": "Uygulama geliştirme ama backend, mobil değil"
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "language": "en",
+      "length": "O",
+      "difficulty": "tuzak",
+      "department": "Industrial Engineering",
+      "classYear": 3,
+      "bio": "Industrial engineering student who enjoys working with data. I use Python and pandas to analyze datasets for my courses, and I have written SQL queries for a database class. I would like to apply this to real business problems.",
+      "skills": [
+        "python",
+        "pandas",
+        "sql",
+        "data-analysis"
+      ],
+      "strong": [
+        "L3",
+        "L19"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L9",
+          "reason": "Python ortak ama iş eğitmenlik, analiz değil"
+        },
+        {
+          "id": "L18",
+          "reason": "Python ortak ama iş LLM/chatbot geliştirme"
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "language": "en",
+      "length": "U",
+      "difficulty": "orta",
+      "department": "Business Administration",
+      "classYear": 2,
+      "bio": "I manage the Instagram page of my university's debate society and design our posters in Canva. Over the last year the page grew from 300 to about 2,000 followers, and I enjoy figuring out which posts people like. I also took an introductory coding course and can build simple web pages with HTML and CSS, but I am not a developer. I am interested in startups and would love to learn how a young company grows. I can work around 8 hours a week and I write comfortably in both Turkish and English.",
+      "skills": [
+        "social-media",
+        "canva",
+        "html-css"
+      ],
+      "strong": [
+        "L12",
+        "L5",
+        "L16"
+      ],
+      "acceptable": [
+        "L20"
+      ],
+      "should_not_match": [
+        {
+          "id": "L6",
+          "reason": "HTML/CSS geçiyor ama iş web sitesi geliştirme, profil kendini developer saymıyor"
+        },
+        {
+          "id": "L1",
+          "reason": "Frontend geliştirici ilanı, profil developer değil"
+        }
+      ]
+    },
+    {
+      "id": "P7",
+      "language": "en",
+      "length": "O",
+      "difficulty": "kolay",
+      "department": "Interaction Design",
+      "classYear": 3,
+      "bio": "Third-year interaction design student. I use Figma every day and I have run user interviews for two class projects. I am looking for a team where I can improve real interfaces and not just class prototypes.",
+      "skills": [
+        "figma",
+        "ux-research",
+        "ui-design"
+      ],
+      "strong": [
+        "L4",
+        "L6"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L1",
+          "reason": "Arayüz konusu ortak ama rol React geliştirme, kod yok"
+        },
+        {
+          "id": "L17",
+          "reason": "Yaratıcı/medya alanı ama video kurgu, UX değil"
+        }
+      ]
+    },
+    {
+      "id": "P8",
+      "language": "tr",
+      "length": "K",
+      "difficulty": "kolay-orta",
+      "department": "İşletme",
+      "classYear": 4,
+      "bio": "Lise döneminde okul etkinliği organize ettim. Aynı zamanda okul temsilcisiydim. Şu an işletme 4. sınıf öğrencisiyim.",
+      "skills": [
+        "etkinlik-organizasyonu",
+        "liderlik",
+        "iletisim"
+      ],
+      "author": "Buse",
+      "strong": [
+        "L7"
+      ],
+      "acceptable": [
+        "L16"
+      ],
+      "should_not_match": [
+        {
+          "id": "L11",
+          "reason": "Okul/gönüllü/eğitim havası ortak ama iş kodlama öğretmek"
+        },
+        {
+          "id": "L5",
+          "reason": "Duyuru/iletişim anlamı ortak ama sosyal medya ve içerik deneyimi yok"
+        }
+      ],
+      "review_note": "L16 acceptable ve L5 negatif sayıldı; ikisi de sınırda, onayında karar ver."
+    },
+    {
+      "id": "P9",
+      "language": "tr",
+      "length": "O",
+      "difficulty": "zor (TR profil, EN ilan)",
+      "department": "Görsel İletişim Tasarımı",
+      "classYear": 2,
+      "bio": "Fotoğraf çekmeyi çok severim, genelde sokak ve portre çekiyorum. Lightroom ile düzenleme yapıyorum. Okulda kulüp etkinliklerinin fotoğraflarını çektim ve kendi kameram var.",
+      "skills": [
+        "fotograf",
+        "lightroom"
+      ],
+      "strong": [
+        "L8",
+        "L14"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L17",
+          "reason": "Görsel içerik ama video/ses kurgusu, fotoğraf değil"
+        },
+        {
+          "id": "L20",
+          "reason": "Görsel/tasarım alanı ama sunum tasarımı, fotoğraf değil"
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "language": "en",
+      "length": "O",
+      "difficulty": "orta",
+      "department": "Communication",
+      "classYear": 2,
+      "bio": "I edit videos for fun and for a small YouTube channel. I mostly use Premiere Pro and I make short TikTok clips with fast cuts and captions. I recently started learning audio editing too.",
+      "skills": [
+        "video-editing",
+        "premiere-pro"
+      ],
+      "strong": [
+        "L17"
+      ],
+      "acceptable": [
+        "L12",
+        "L8"
+      ],
+      "should_not_match": [
+        {
+          "id": "L20",
+          "reason": "Görsel/tasarım alanı ama pitch deck ve sunum"
+        },
+        {
+          "id": "L4",
+          "reason": "Yaratıcı alan ama UI/UX tasarımı, video değil"
+        }
+      ],
+      "review_note": "L8 acceptable: video kurgu var, fotoğraf/çekim deneyimi yok."
+    },
+    {
+      "id": "P11",
+      "language": "en",
+      "length": "U",
+      "difficulty": "orta",
+      "department": "Computer Engineering",
+      "classYear": 4,
+      "bio": "Computer engineering senior with a strong interest in machine learning. I have trained image classifiers with PyTorch and joined two Kaggle competitions, nothing impressive but I learned a lot. Last year I took part in a 24 hour hackathon where our team built a small recommendation tool. I like explaining ideas to others and often help my classmates with their ML homework. I want to either teach or build something practical with a language model. I can give about 5 hours a week.",
+      "skills": [
+        "machine-learning",
+        "pytorch",
+        "python"
+      ],
+      "strong": [
+        "L10",
+        "L18"
+      ],
+      "acceptable": [
+        "L9"
+      ],
+      "should_not_match": [
+        {
+          "id": "L19",
+          "reason": "Veri konusu ortak ama Excel/Power BI dashboard, ML değil"
+        },
+        {
+          "id": "L15",
+          "reason": "Yazılım ilanı ama backend (Node/Firebase), ML yok"
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "language": "tr",
+      "length": "U",
+      "difficulty": "orta",
+      "department": "Çocuk Gelişimi",
+      "classYear": 3,
+      "bio": "Çocuklarla çalışmayı çok seviyorum. Lisede her yaz bir yaz okulunda gönüllü yardımcı öğretmenlik yaptım. Scratch ile küçük oyunlar yapabiliyorum ve kuzenlerime bunu öğretiyorum. Kod yazmayı ciddi anlamda bilmiyorum ama anlatmayı seviyorum. Hafta sonları vaktim var ve bir sivil toplum kuruluşunda anlamlı bir şey yapmak istiyorum.",
+      "skills": [
+        "scratch",
+        "gonulluluk"
+      ],
+      "strong": [
+        "L11"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L9",
+          "reason": "Eğitmenlik ortak ama Python bilgisi şart, profil kod bilmiyor"
+        },
+        {
+          "id": "L10",
+          "reason": "Mentorluk ortak ama makine öğrenmesi şart"
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "language": "tr",
+      "length": "O",
+      "difficulty": "zor (TR profil, EN ilan)",
+      "department": "Psikoloji",
+      "classYear": 2,
+      "bio": "İngilizce ve Türkçeyi aynı rahatlıkla kullanıyorum, uzun metinleri iki dilde okuyup yazabiliyorum. Gönüllü bir işte yer almak istiyorum, tercihen uzaktan ve esnek saatli. Çevirmen değilim ama dil konusunda titizimdir.",
+      "skills": [
+        "ingilizce",
+        "turkce",
+        "gonulluluk"
+      ],
+      "strong": [
+        "L13"
+      ],
+      "acceptable": [
+        "L12"
+      ],
+      "should_not_match": [
+        {
+          "id": "L14",
+          "reason": "Gönüllülük ortak ama fotoğraf ve tanıtım"
+        },
+        {
+          "id": "L11",
+          "reason": "Gönüllülük ortak ama kodlama öğretimi"
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "language": "en",
+      "length": "K",
+      "difficulty": "kolay",
+      "department": "Software Engineering",
+      "classYear": 2,
+      "bio": "Backend developer in training, I work with Node.js and Firebase.",
+      "skills": [
+        "nodejs",
+        "firebase"
+      ],
+      "strong": [
+        "L15"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L2",
+          "reason": "Geliştirici ilanı ama mobil/Flutter, backend değil"
+        },
+        {
+          "id": "L1",
+          "reason": "Geliştirici ilanı ama React/frontend"
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "language": "tr",
+      "length": "U",
+      "difficulty": "zor (dolaylı, dağınık ilgi)",
+      "department": "İşletme",
+      "classYear": 3,
+      "bio": "Bir gün kendi girişimimi kurmak istiyorum ama henüz neyi kuracağımı bilmiyorum. Sunum hazırlamayı çok seviyorum, okulda yaptığım sunumlar hep beğeniliyor, bu yüzden bir pitch deck üzerinde çalışmak ilgimi çeker. Pazarlama dersini sevdim ve kampüste bir ürünün nasıl tanıtıldığını merak ediyorum. Kod bilmiyorum, tasarım programlarını da çok bilmiyorum ama öğrenmeye açığım. Hem girişimcilik kulübü gibi bir yerde hem de bir şirkette staj gibi bir şeyde deneyim kazanabilirim.",
+      "skills": [
+        "sunum",
+        "pazarlama"
+      ],
+      "strong": [
+        "L20",
+        "L16"
+      ],
+      "acceptable": [
+        "L7"
+      ],
+      "should_not_match": [
+        {
+          "id": "L1",
+          "reason": "Girişim ortamı ortak ama React geliştirici, profil kod bilmiyor"
+        },
+        {
+          "id": "L3",
+          "reason": "Girişim/büyüme ortamı ortak ama Python/SQL veri analizi"
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "language": "tr",
+      "length": "O",
+      "difficulty": "tuzak",
+      "department": "Bilgisayar Mühendisliği",
+      "classYear": 1,
+      "bio": "İki yıl boyunca lise kardeşlerime ve arkadaşlarıma Python dersi verdim, yeni başlayanlara anlatmayı severim. Kendi hazırladığım alıştırmalar ve küçük örnek projeler var. Python'u daha çok oyunlar ve küçük araçlar yapmak için kullandım.",
+      "skills": [
+        "python",
+        "egitmenlik"
+      ],
+      "strong": [
+        "L9"
+      ],
+      "acceptable": [
+        "L11"
+      ],
+      "should_not_match": [
+        {
+          "id": "L3",
+          "reason": "Python ortak ama iş veri analizi (pandas/SQL)"
+        },
+        {
+          "id": "L18",
+          "reason": "Python ortak ama iş LLM/chatbot prototipi"
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "language": "tr",
+      "length": "K",
+      "difficulty": "orta (yazım hatalı)",
+      "department": "Yazılım Mühendisliği",
+      "classYear": 1,
+      "bio": "yazilim ogrencisiyim node ogrenmek isterim",
+      "skills": [
+        "nodejs"
+      ],
+      "strong": [
+        "L15"
+      ],
+      "acceptable": [],
+      "should_not_match": [
+        {
+          "id": "L1",
+          "reason": "Yazılım ilanı ama frontend/React, profil Node istiyor"
+        },
+        {
+          "id": "L2",
+          "reason": "Yazılım ilanı ama mobil/Flutter"
+        }
+      ],
+      "review_note": "L15 strong kaldı: profil kısa ve Node öğrenmek istiyor, ilan gerisini öğretiriz diyor. Bilinçli zor örnek."
+    },
+    {
+      "id": "P18",
+      "language": "en",
+      "length": "U",
+      "difficulty": "orta",
+      "department": "Economics",
+      "classYear": 4,
+      "bio": "Final-year economics student doing a data analyst internship at a company this semester. At work I mainly use Excel and Power BI to build monthly reports, and I am learning SQL on the side so I can pull data without asking my teammates every time. At university I took econometrics and used R for regression projects. I would like to move toward more analysis work and less manual reporting. I am also open to volunteering my skills for non-profit projects. I can spare about 6 hours a week.",
+      "skills": [
+        "excel",
+        "power-bi",
+        "sql",
+        "data-analysis"
+      ],
+      "strong": [
+        "L19"
+      ],
+      "acceptable": [
+        "L3"
+      ],
+      "should_not_match": [
+        {
+          "id": "L10",
+          "reason": "Veri/ML alanı ortak ama mentorluk ve ML şart"
+        },
+        {
+          "id": "L18",
+          "reason": "Veri/AI alanı ortak ama LLM/Python geliştirme"
+        }
+      ],
+      "review_note": "L3 acceptable: Python/pandas yok, Excel/Power BI/SQL var."
+    },
+    {
+      "id": "P19",
+      "language": "en",
+      "length": "O",
+      "difficulty": "orta",
+      "department": "Computer Engineering",
+      "classYear": 3,
+      "bio": "I spend my free time experimenting with language models. I have written small Python scripts that call LLM APIs, tried different prompts for summarizing lecture notes, and built a toy chatbot that answers questions about my course syllabus.",
+      "skills": [
+        "python",
+        "llm",
+        "prompt-engineering"
+      ],
+      "strong": [
+        "L18"
+      ],
+      "acceptable": [
+        "L10"
+      ],
+      "should_not_match": [
+        {
+          "id": "L3",
+          "reason": "Python ortak ama iş veri analizi ve raporlama"
+        },
+        {
+          "id": "L9",
+          "reason": "Python ortak ama iş eğitmenlik, profilde ders verme yok"
+        }
+      ],
+      "review_note": "L10 acceptable: ML/PyTorch/mentorluk şartı profilde tam karşılanmıyor."
+    },
+    {
+      "id": "P20",
+      "language": "en",
+      "length": "U",
+      "difficulty": "orta (çapraz dil)",
+      "department": "Management",
+      "classYear": 3,
+      "bio": "I am the president of my university's entrepreneurship club. Over two years we organized eleven events, including a career day with 300 attendees. I design most of our presentations in Canva and I am responsible for our social media. I want to help other students build confident pitches and reach a wider audience. I do not write code. I can commit about 7 hours a week.",
+      "skills": [
+        "canva",
+        "sunum",
+        "etkinlik-organizasyonu",
+        "sosyal-medya"
+      ],
+      "strong": [
+        "L20",
+        "L7"
+      ],
+      "acceptable": [
+        "L5",
+        "L16"
+      ],
+      "should_not_match": [
+        {
+          "id": "L6",
+          "reason": "Kulüp ilanı ama web sitesi geliştirme, profil kod yazmıyor"
+        },
+        {
+          "id": "L17",
+          "reason": "Kulüp ilanı ama podcast/video kurgu"
+        }
+      ],
+      "review_note": "L7 etkinlik deneyimi nedeniyle strong; L5 ve L16 acceptable."
+    }
+  ]
+}
