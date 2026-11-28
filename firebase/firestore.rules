@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSchoolAccount() {
+      return request.auth != null
+        && request.auth.token.get('email_verified', false) == true
+        && request.auth.token.get('email', '').matches('^[^@]+@stu[.]istinye[.]edu[.]tr$');
+    }
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    match /users/{uid} {
+      allow read: if isSchoolAccount();
+      allow create: if isOwner(uid)
+        && !request.resource.data.keys().hasAny(['role', 'email']);
+      allow update: if isOwner(uid)
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'email']);
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -41,6 +41,7 @@ Anyone can read the code, issues and pull requests ([why](docs/decisions/003-pub
    - From the repository root, run `npm ci` and then `npm run emulators`. Keep this terminal open.
    - In a second terminal at the repository root, run `npm run seed` to create 10 fictional Auth accounts and Firestore profiles, 15 listings, and 20 course notes. Run it again to recreate missing fixtures.
    - Open [Emulator UI](http://127.0.0.1:4000) to inspect the `demo-civienta` data. Local test accounts use `ornek.ogrenciNN@stu.istinye.edu.tr` and the fixture password pattern `civienta-local-fixture-NN`, with `NN` from `01` to `10`.
+   - To test the Firestore rules, stop the running emulator with `Ctrl+C` and run `npm run test:rules` from the repository root. The command starts and stops the test emulator automatically.
 4. `services/ai`: Python environment and run command (later, not in Sprint 0).
 
 ## Contributing
