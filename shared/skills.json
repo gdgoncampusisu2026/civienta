@@ -85,6 +85,11 @@
     "category": "backend"
   },
   {
+    "slug": "c-cpp",
+    "label": "C/C++",
+    "category": "backend"
+  },
+  {
     "slug": "flutter",
     "label": "Flutter",
     "category": "mobile"
@@ -227,6 +232,11 @@
   {
     "slug": "software-testing",
     "label": "Yazılım Testi",
+    "category": "devops"
+  },
+  {
+    "slug": "cybersecurity",
+    "label": "Siber Güvenlik",
     "category": "devops"
   },
   {
@@ -403,5 +413,25 @@
     "slug": "teaching",
     "label": "Eğitmenlik",
     "category": "soft-skills"
+  },
+  {
+    "slug": "embedded-systems",
+    "label": "Gömülü Sistemler ve IoT",
+    "category": "hardware"
+  },
+  {
+    "slug": "arduino",
+    "label": "Arduino",
+    "category": "hardware"
+  },
+  {
+    "slug": "game-development",
+    "label": "Oyun Geliştirme",
+    "category": "game-dev"
+  },
+  {
+    "slug": "unity",
+    "label": "Unity",
+    "category": "game-dev"
   }
 ]
