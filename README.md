@@ -28,12 +28,16 @@ Anyone can read the code, issues and pull requests ([why](docs/decisions/003-pub
 
 ## Local setup
 
-Not ready yet. These steps will be filled in as the Sprint 0 tasks land:
-
-1. Clone the repo and install Node.js (version will be pinned by S0-05).
-2. `apps/web`: install and run the app (S0-05).
+1. Clone the repo and install Node.js 26.13.1 (pinned in `.nvmrc`).
+2. `apps/web`: install and run the app:
+   ```bash
+   cd apps/web
+   npm ci
+   npm run dev
+   ```
+   Open http://localhost:3000 in your browser.
 3. Firebase Auth and Firestore emulators:
-   - Install Node.js 22 or newer and the Java 21 JDK. Check that `java -version` runs in your terminal.
+   - Install the Java 21 JDK. Check that `java -version` runs in your terminal.
    - From the repository root, run `npm ci` and then `npm run emulators`. Keep this terminal open.
    - In a second terminal at the repository root, run `npm run seed` to create 10 fictional Auth accounts and Firestore profiles, 15 listings, and 20 course notes. Run it again to recreate missing fixtures.
    - Open [Emulator UI](http://127.0.0.1:4000) to inspect the `demo-civienta` data. Local test accounts use `ornek.ogrenciNN@stu.istinye.edu.tr` and the fixture password pattern `civienta-local-fixture-NN`, with `NN` from `01` to `10`.
