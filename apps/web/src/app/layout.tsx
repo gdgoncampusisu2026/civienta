@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GDG İstinye Campus Platform",
-  description: "İstinye University student platform",
+  title: "Civienta",
+  description: "Campus platform for Istinye University students",
 };
+
+const navLinks = [
+  { href: "/listings", label: "Listings" },
+  { href: "/notes", label: "Notes" },
+  { href: "/profile", label: "Profile" },
+];
 
 export default function RootLayout({
   children,
@@ -16,11 +23,15 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased">
         <header className="border-b">
           <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-            <span className="font-semibold">GDG İstinye</span>
+            <Link href="/" className="font-semibold">
+              Civienta
+            </Link>
             <div className="flex gap-4 text-sm text-muted-foreground">
-              <span>Listings</span>
-              <span>Notes</span>
-              <span>Profile</span>
+              {navLinks.map(({ href, label }) => (
+                <Link key={href} href={href} className="hover:text-foreground">
+                  {label}
+                </Link>
+              ))}
             </div>
           </nav>
         </header>

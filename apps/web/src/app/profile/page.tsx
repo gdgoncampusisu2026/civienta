@@ -1,3 +1,3 @@
 export default function Page() {
-  return <main className="p-6">profile</main>;
+  return <div>profile</div>;
 }
