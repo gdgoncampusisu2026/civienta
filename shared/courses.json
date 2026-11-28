@@ -1,0 +1,7 @@
+[
+  { "slug": "web-programming", "label": "Web Programming", "department": "management-information-systems" },
+  { "slug": "database-systems", "label": "Database Systems", "department": "management-information-systems" },
+  { "slug": "software-testing", "label": "Software Testing", "department": "software-engineering" },
+  { "slug": "data-structures", "label": "Data Structures", "department": "computer-engineering" },
+  { "slug": "computer-networks", "label": "Computer Networks", "department": "computer-engineering" }
+]
