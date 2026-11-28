@@ -49,7 +49,6 @@ const users = Array.from({ length: 10 }, (_, index) => {
   };
   const data = {
     displayName: account.displayName,
-    email: account.email,
     department: departments[index % departments.length].slug,
     classYear: (index % 4) + 1,
     bio: `Yerel geliştirme için örnek öğrenci profili ${number}.`,

@@ -33,7 +33,6 @@ Collection names, document ids and the links between collections are fixed. Fiel
 | Field | Type | Notes |
 |---|---|---|
 | displayName | string | from the school account |
-| email | string | from the auth token, never editable |
 | department | string | slug from `departments.json` |
 | classYear | number | 1 to 6 |
 | bio | string | free text, max 500 chars |
@@ -43,7 +42,7 @@ Collection names, document ids and the links between collections are fixed. Fiel
 | onboarded | boolean | false until the profile form is completed |
 | createdAt, updatedAt | timestamp | |
 
-Public profile pages must not show `email`.
+The email address is not stored here: it stays in Firebase Auth (and the auth token), and clients cannot add an `email` field. Without Cloud Functions nothing could write it safely, and every signed-in student can read profiles.
 
 ### `listings/{listingId}`
 
@@ -117,7 +116,7 @@ Written and read only by the AI service.
 
 | Collection | Read | Write |
 |---|---|---|
-| users | signed-in school account | owner only, never `role` or `email` |
+| users | signed-in school account | owner only (school account), never `role` or `email` |
 | listings | signed-in school account (`draft` only by owner) | owner create and update, owner or admin delete |
 | applications | applicant and listing owner | applicant creates and withdraws, listing owner changes status |
 | notes | signed-in school account (`published` only, moderators see all) | uploader creates and edits own, moderators change `status` |
